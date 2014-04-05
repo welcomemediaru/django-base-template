@@ -6,6 +6,7 @@ Django>=1.6
 
 # Templates
 django_compressor
+pyjade
 
 # Security
 # bleach
