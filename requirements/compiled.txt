@@ -4,3 +4,6 @@ psycopg2
 
 # for bcrypt passwords
 bcrypt
+
+# Images
+pillow
