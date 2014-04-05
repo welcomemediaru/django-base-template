@@ -8,19 +8,19 @@ Django>=1.6
 django_compressor
 
 # Security
-bleach
-#cef
+# bleach
+# cef
 
 # Logging
-#raven
+raven
 
 # Celery: Message queue
-celery
-django-celery
+# celery
+# django-celery
 
 # L10n/i18n
-#Babel
-#-e git://github.com/clouserw/tower.git#egg=tower
+# Babel
+# -e git://github.com/clouserw/tower.git#egg=tower
 
 # Caching
 python-memcached
@@ -32,4 +32,4 @@ django-debug-toolbar
 South
 
 # Feature testing
-#django-waffle
+# django-waffle
