@@ -4,7 +4,7 @@
 -r production.txt
 
 # Deployment
-Fabric
+# Fabric
 
 # Documentation
 Sphinx
