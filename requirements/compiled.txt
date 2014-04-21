@@ -3,7 +3,7 @@ psycopg2
 #MySQL-python
 
 # for bcrypt passwords
-bcrypt
+# bcrypt
 
 # Images
 pillow
