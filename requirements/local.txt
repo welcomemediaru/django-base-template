@@ -7,12 +7,12 @@
 # Fabric
 
 # Documentation
-Sphinx
+# Sphinx
 
 # Testing
-nose
-mock
-django-nose
-coverage
-pep8
-pylint
+# nose
+# mock
+# django-nose
+# coverage
+# pep8
+# pylint

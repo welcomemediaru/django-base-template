@@ -4,6 +4,7 @@ repo. If you need to override a setting locally, use local.py
 """
 
 import os
+import sys
 import logging
 
 # Normally you should not import ANYTHING from Django directly
@@ -19,21 +20,36 @@ def get_env_setting(setting):
         error_msg = "Set the %s env variable" % setting
         raise ImproperlyConfigured(error_msg)
 
+gettext = lambda s: s
 
 # Your project root
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
+
+# There should be no __init__.py in apps folder
+# To import use `from appname.models import ModelName`,
+# not `from apps.appname import ModelName`
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
+
+LANGUAGES = (
+    ('ru', gettext('ru')),
+)
+
 
 # Defines the views served for root URLs.
 ROOT_URLCONF = '{{ project_name }}.urls'
 
 # Application definition
 INSTALLED_APPS = (
+    # Django cms admin styles
+    # 'djangocms_admin_style',
+    # 'djangocms_text_ckeditor',
+
     # Django contrib apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,9 +63,29 @@ INSTALLED_APPS = (
     # Third-party apps, patches, fixes
     'debug_toolbar',
     'compressor',
+    # 'django_select2',
 
     # Database migrations
     'south',
+
+    # django-cms and it's reqs
+    # 'cms',
+    # 'mptt',
+    # 'menus',
+    # 'sekizai',
+
+    # django-cms plugins
+    # 'djangocms_style',
+    # 'djangocms_column',
+    # 'djangocms_file',
+    # 'djangocms_flash',
+    # 'djangocms_googlemap',
+    # 'djangocms_inherit',
+    # 'djangocms_link',
+    # 'djangocms_picture',
+    # 'djangocms_teaser',
+    # 'djangocms_video',
+    # 'reversion',
 
     # Application base, containing global templates.
     'base',
@@ -119,7 +155,7 @@ USE_TZ = True
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'Europe/Moscow'
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -138,6 +174,11 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # django-cms middleware
+    # 'cms.middleware.user.CurrentUserMiddleware',
+    # 'cms.middleware.page.CurrentPageMiddleware',
+    # 'cms.middleware.toolbar.ToolbarMiddleware',
+    # 'cms.middleware.language.LanguageCookieMiddleware'
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -150,13 +191,12 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.csrf',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
+    # django-cms context processors
+    # 'cms.context_processors.media',
+    # 'sekizai.context_processors.sekizai',
 ]
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or
-    # "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_ROOT, 'templates'),
 )
 
@@ -176,7 +216,8 @@ def custom_show_toolbar(request):
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
-    'SHOW_TOOLBAR_CALLBACK': '{{ project_name }}.settings.base.custom_show_toolbar',
+    'SHOW_TOOLBAR_CALLBACK': (
+        '{{ project_name }}.settings.base.custom_show_toolbar'),
     'HIDE_DJANGO_SQL': True,
     'TAG': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
@@ -197,7 +238,7 @@ DEBUG_TOOLBAR_CONFIG = {
 # )
 
 # Specify a custom user model to use
-#AUTH_USER_MODEL = 'accounts.MyUser'
+# AUTH_USER_MODEL = 'accounts.MyUser'
 
 FILE_UPLOAD_PERMISSIONS = 0o0664
 
@@ -213,21 +254,8 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
-        #'OPTIONS': {
-        #    'init_command': 'SET storage_engine=InnoDB',
-        #    'charset' : 'utf8',
-        #    'use_unicode' : True,
-        #},
-        #'TEST_CHARSET': 'utf8',
-        #'TEST_COLLATION': 'utf8_general_ci',
-    },
-    # 'slave': {
-    #     ...
-    # },
+    }
 }
-
-# Uncomment this and set to all slave DBs in use on the site.
-# SLAVE_DATABASES = ['slave']
 
 # Recipients of traceback emails and other notifications.
 ADMINS = (
@@ -246,34 +274,62 @@ DEV = False
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["{{ project_name }}.0-wm.ru"]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Hardcoded values can leak through source control.
 # This is an example method of getting the value from an environment setting.
-# Uncomment to use, and then make sure you set the SECRET_KEY environment variable.
-# This is good to use in production, and on services that support it such as Heroku.
-#SECRET_KEY = get_env_setting('SECRET_KEY')
-
-# Uncomment these to activate and customize Celery:
-# CELERY_ALWAYS_EAGER = False  # required to activate celeryd
-# BROKER_HOST = 'localhost'
-# BROKER_PORT = 5672
-# BROKER_USER = 'django'
-# BROKER_PASSWORD = 'django'
-# BROKER_VHOST = 'django'
-# CELERY_RESULT_BACKEND = 'amqp'
+# Uncomment to use, and then make sure you set the SECRET_KEY environment
+# variable.
+# This is good to use in production, and on services that support it such as
+# Heroku.
+# SECRET_KEY = get_env_setting('SECRET_KEY')
 
 INTERNAL_IPS = ('127.0.0.1')
 
+# Django-compressor settings for less files
+COMPRESS_PRECOMPILERS = (
+    ('text/less', 'lessc {infile} {outfile}'),
+)
+
+# django-cms settings
+# CMS_LANGUAGES = {
+#     ## Customize this
+#     'default': {
+#         'hide_untranslated': False,
+#         'redirect_on_fallback': True,
+#         'public': True,
+#     },
+#     1: [
+#         {
+#             'redirect_on_fallback': True,
+#             'code': 'ru',
+#             'hide_untranslated': False,
+#             'name': gettext('ru'),
+#             'public': True,
+#         },
+#     ],
+# }
+#
+# CMS_TEMPLATES = (
+#     ## Customize this
+#     ('page.jade', u'Страница'),
+#     ('feature.html', 'Page with Feature')
+# )
+#
+# CMS_PERMISSION = True
+#
+# CMS_PLACEHOLDER_CONF = {}
+
+
 # Enable this option for memcached
-#CACHE_BACKEND= "memcached://127.0.0.1:11211/"
+# CACHE_BACKEND= "memcached://127.0.0.1:11211/"
 
 # Set this to true if you use a proxy that sets X-Forwarded-Host
-#USE_X_FORWARDED_HOST = False
+# USE_X_FORWARDED_HOST = False
 
-SERVER_EMAIL = "webmaster@example.com"
-DEFAULT_FROM_EMAIL = "webmaster@example.com"
+SERVER_EMAIL = "webmaster@{{ project_name }}.0-wm.ru"
+DEFAULT_FROM_EMAIL = "webmaster@{{ project_name }}.0-wm.ru"
 SYSTEM_EMAIL_PREFIX = "[{{ project_name }}]"
 
 ## Log settings
@@ -291,9 +347,3 @@ LOGGING = {
         }
     }
 }
-
-# Common Event Format logging parameters
-#CEF_PRODUCT = '{{ project_name }}'
-#CEF_VENDOR = 'Your Company'
-#CEF_VERSION = '0'
-#CEF_DEVICE_VERSION = '0'

@@ -5,23 +5,11 @@
 Django>=1.6
 
 # Templates
-django_compressor
+django-compressor
 pyjade
-
-# Security
-# bleach
-# cef
 
 # Logging
 raven
-
-# Celery: Message queue
-# celery
-# django-celery
-
-# L10n/i18n
-# Babel
-# -e git://github.com/clouserw/tower.git#egg=tower
 
 # Caching
 python-memcached
@@ -32,5 +20,18 @@ django-debug-toolbar
 # Migrations
 South
 
-# Feature testing
-# django-waffle
+# Social auth
+# python-social-auth
+
+# Content
+# django-cms>=3.0
+
+# django-cms plugins
+# djangocms-file
+# djangocms-flash
+# djangocms-googlemap
+# djangocms-inherit
+# djangocms-link
+# djangocms-picture
+# djangocms-teaser
+# djangocms-video

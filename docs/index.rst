@@ -2,7 +2,7 @@
 Welcome to {{ project_name }}'s documentation!
 ========================================
 
-This is a documentation template for a **web application using Django 1.5**.
+This is a documentation template for a **web application using Django 1.6**.
 Feel free to change this to your liking.
 
 
