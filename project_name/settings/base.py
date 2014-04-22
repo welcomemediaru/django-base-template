@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 This is your project's main settings file that can be committed to your
 repo. If you need to override a setting locally, use local.py
@@ -34,7 +35,7 @@ SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'ru'
 
 LANGUAGES = (
     ('ru', gettext('ru')),
@@ -289,7 +290,7 @@ INTERNAL_IPS = ('127.0.0.1')
 
 # Django-compressor settings for less files
 COMPRESS_PRECOMPILERS = (
-    ('text/less', 'lessc {infile} {outfile}'),
+    ('text/less', 'node_modules/less/bin/lessc {infile} {outfile}'),
 )
 
 # django-cms settings

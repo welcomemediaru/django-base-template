@@ -25,6 +25,8 @@ South
 
 # Content
 # django-cms>=3.0
+# django-reversion
+# django-mptt
 
 # django-cms plugins
 # djangocms-file
@@ -35,3 +37,6 @@ South
 # djangocms-picture
 # djangocms-teaser
 # djangocms-video
+# djangocms_column
+# djangocms_style
+# djangocms_text_ckeditor
