@@ -48,14 +48,15 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 # Application definition
 INSTALLED_APPS = (
     # Django cms admin styles
-    # 'djangocms_admin_style',
-    # 'djangocms_text_ckeditor',
+    'djangocms_admin_style',
+    'djangocms_text_ckeditor',
 
     # Django contrib apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.humanize',
     'django.contrib.syndication',
@@ -297,33 +298,33 @@ COMPRESS_PRECOMPILERS = (
 )
 
 # django-cms settings
-# CMS_LANGUAGES = {
-#     ## Customize this
-#     'default': {
-#         'hide_untranslated': False,
-#         'redirect_on_fallback': True,
-#         'public': True,
-#     },
-#     1: [
-#         {
-#             'redirect_on_fallback': True,
-#             'code': 'ru',
-#             'hide_untranslated': False,
-#             'name': gettext('ru'),
-#             'public': True,
-#         },
-#     ],
-# }
-#
-# CMS_TEMPLATES = (
-#     ## Customize this
-#     ('page.jade', u'Страница'),
-#     ('feature.html', 'Page with Feature')
-# )
-#
-# CMS_PERMISSION = True
-#
-# CMS_PLACEHOLDER_CONF = {}
+CMS_LANGUAGES = {
+    ## Customize this
+    'default': {
+        'hide_untranslated': False,
+        'redirect_on_fallback': True,
+        'public': True,
+    },
+    1: [
+        {
+            'redirect_on_fallback': True,
+            'code': 'ru',
+            'hide_untranslated': False,
+            'name': gettext('ru'),
+            'public': True,
+        },
+    ],
+}
+
+CMS_TEMPLATES = (
+    ## Customize this
+    ('base/page.jade', u'Страница'),
+    ('base/index.jade', u'Главная страница')
+)
+
+CMS_PERMISSION = True
+
+CMS_PLACEHOLDER_CONF = {}
 
 
 # Enable this option for memcached
@@ -351,3 +352,5 @@ LOGGING = {
         }
     }
 }
+
+SITE_ID = 1

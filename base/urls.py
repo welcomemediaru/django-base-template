@@ -3,6 +3,7 @@
 from django.conf.urls import url, patterns
 
 
-urlpatterns = patterns('base.views',
-    url(r'^$', 'home', name='home'),
+urlpatterns = patterns(
+    "base.views",
+    url(r"^4verstka/$", "home", name="home"),
 )
