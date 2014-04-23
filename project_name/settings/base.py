@@ -213,15 +213,15 @@ TEMPLATE_LOADERS = (
 )
 
 
-def custom_show_toolbar(request):
-    """ Only show the debug toolbar to users with the superuser flag. """
-    return request.user.is_superuser
+# def custom_show_toolbar(request):
+#     """ Only show the debug toolbar to users with the superuser flag. """
+#     return request.user.is_superuser
 
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
-    'SHOW_TOOLBAR_CALLBACK': (
-        '{{ project_name }}.settings.base.custom_show_toolbar'),
+    # 'SHOW_TOOLBAR_CALLBACK': (
+    #     '{{ project_name }}.settings.base.custom_show_toolbar'),
     'HIDE_DJANGO_SQL': True,
     'TAG': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
