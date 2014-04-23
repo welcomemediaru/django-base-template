@@ -1,42 +1,9 @@
 # Install everything that needs to be compiled
 -r compiled.txt
-
-# Django stuff
-Django>=1.6
-
-# Templates
-django-compressor
-pyjade
+-r common.txt
 
 # Logging
 raven
 
-# Caching
-python-memcached
-
-# Admin
-django-debug-toolbar
-
-# Migrations
-South
-
-# Social auth
-# python-social-auth
-
-# Content
-# django-cms>=3.0
-# django-reversion
-# django-mptt
-
-# django-cms plugins
-# djangocms-file
-# djangocms-flash
-# djangocms-googlemap
-# djangocms-inherit
-# djangocms-link
-# djangocms-picture
-# djangocms-teaser
-# djangocms-video
-# djangocms_column
-# djangocms_style
-# djangocms_text_ckeditor
+# wsgi
+uwsgi

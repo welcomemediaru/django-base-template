@@ -69,24 +69,27 @@ INSTALLED_APPS = (
     # Database migrations
     'south',
 
+    # Application base, containing global templates.
+    'base',
+
     # django-cms and it's reqs
-    # 'cms',
-    # 'mptt',
-    # 'menus',
-    # 'sekizai',
+    'cms',
+    'mptt',
+    'menus',
+    'sekizai',
 
     # django-cms plugins
-    # 'djangocms_style',
-    # 'djangocms_column',
-    # 'djangocms_file',
-    # 'djangocms_flash',
-    # 'djangocms_googlemap',
-    # 'djangocms_inherit',
-    # 'djangocms_link',
-    # 'djangocms_picture',
-    # 'djangocms_teaser',
-    # 'djangocms_video',
-    # 'reversion',
+    'djangocms_style',
+    'djangocms_column',
+    'djangocms_file',
+    'djangocms_flash',
+    'djangocms_googlemap',
+    'djangocms_inherit',
+    'djangocms_link',
+    'djangocms_picture',
+    'djangocms_teaser',
+    'djangocms_video',
+    'reversion',
 
     # Application base, containing global templates.
     'base',
@@ -174,12 +177,11 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # django-cms middleware
-    # 'cms.middleware.user.CurrentUserMiddleware',
-    # 'cms.middleware.page.CurrentPageMiddleware',
-    # 'cms.middleware.toolbar.ToolbarMiddleware',
-    # 'cms.middleware.language.LanguageCookieMiddleware'
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware'
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -193,8 +195,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     # django-cms context processors
-    # 'cms.context_processors.media',
-    # 'sekizai.context_processors.sekizai',
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
 ]
 
 TEMPLATE_DIRS = (
@@ -224,6 +226,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TEMPLATE_CONTEXT': True,
     'ENABLE_STACKTRACES': True,
 }
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 # DEBUG_TOOLBAR_PANELS = (
 #     #'debug_toolbar_user_panel.panels.UserPanel',

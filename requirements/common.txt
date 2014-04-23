@@ -1,0 +1,33 @@
+# Django stuff
+Django>=1.6
+
+# Templates
+django-compressor
+pyjade
+
+# Caching
+python-memcached
+
+# Migrations
+South
+
+# Social auth
+# python-social-auth
+
+# Content
+django-cms>=3.0
+django-reversion
+django-mptt
+
+# django-cms plugins
+djangocms-file
+djangocms-flash
+djangocms-googlemap
+djangocms-inherit
+djangocms-link
+djangocms-picture
+djangocms-teaser
+djangocms-video
+djangocms_column
+djangocms_style
+djangocms_text_ckeditor
