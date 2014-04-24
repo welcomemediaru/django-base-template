@@ -1,3 +1,4 @@
+-r compiled.txt
 # Django stuff
 Django>=1.6
 
