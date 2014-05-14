@@ -24,6 +24,11 @@ module.exports = function (grunt) {
                     dest: "<%= app.static %>/less/bootstrap/"
                 }, {
                     expand: true,
+                    cwd: "bower_components/bootstrap/less/",
+                    src: ["variables.less"],
+                    dest: "<%= app.static %>/less/"
+                }, {
+                    expand: true,
                     cwd: "bower_components/font-awesome/less/",
                     src: ["**"],
                     dest: "<%= app.static %>/less/font-awesome/"
