@@ -1,9 +1,14 @@
 "use strict";
 
 module.exports = function (grunt) {
+    var appConfig = {
+        static: "base/static",
+    };
 
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
+
+        app: appConfig,
 
         copy: {
             main: {
@@ -11,42 +16,82 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: "bower_components/bootstrap/js/",
                     src: ["**"],
-                    dest: "base/static/js/bootstrap/"
+                    dest: "<%= app.static %>/js/bootstrap/"
                 }, {
                     expand: true,
                     cwd: "bower_components/bootstrap/less/",
                     src: ["**"],
-                    dest: "base/static/less/bootstrap/"
+                    dest: "<%= app.static %>/less/bootstrap/"
                 }, {
                     expand: true,
                     cwd: "bower_components/font-awesome/less/",
                     src: ["**"],
-                    dest: "base/static/less/font-awesome/"
+                    dest: "<%= app.static %>/less/font-awesome/"
                 }, {
                     expand: true,
                     cwd: "bower_components/font-awesome/fonts/",
                     src: ["**"],
-                    dest: "base/static/fonts/font-awesome/"
+                    dest: "<%= app.static %>/fonts/font-awesome/"
                 }, {
                     expand: true,
                     cwd: "bower_components/jquery/dist/",
                     src: ["jquery.js"],
-                    dest: "base/static/js/libs/"
+                    dest: "<%= app.static %>/js/libs/"
                 }, {
                     expand: true,
                     cwd: "bower_components/modernizr/",
                     src: ["modernizr.js"],
-                    dest: "base/static/js/libs/"
+                    dest: "<%= app.static %>/js/libs/"
                 }, {
                     expand: true,
                     cwd: "bower_components/respond/",
                     src: ["respond.src.js"],
-                    dest: "base/static/js/libs/"
+                    dest: "<%= app.static %>/js/libs/"
                 }, {
                     expand: true,
                     cwd: "bower_components/holderjs/",
                     src: ["holder.js"],
-                    dest: "base/static/js/libs/"
+                    dest: "<%= app.static %>/js/libs/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/SVGMagic/src/",
+                    src: ["SVGMagic.js"],
+                    dest: "<%= app.static %>/js/libs/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["jquery.fancybox.js"],
+                    dest: "<%= app.static %>/js/libs/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["jquery.fancybox.css"],
+                    dest: "<%= app.static %>/css/fancybox/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["fancybox_loading.gif"],
+                    dest: "<%= app.static %>/css/fancybox/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["fancybox_loading@2x.gif"],
+                    dest: "<%= app.static %>/css/fancybox/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["fancybox_overlay.png"],
+                    dest: "<%= app.static %>/css/fancybox/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["fancybox_sprite.png"],
+                    dest: "<%= app.static %>/css/fancybox/"
+                }, {
+                    expand: true,
+                    cwd: "bower_components/fancybox/source/",
+                    src: ["fancybox_sprite@2x.png"],
+                    dest: "<%= app.static %>/css/fancybox/"
                 }]
             }
         }

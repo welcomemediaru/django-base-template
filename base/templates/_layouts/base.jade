@@ -1,5 +1,5 @@
 !!! 5
-html.no-js(lang="en")
+html.no-js(lang="ru")
     - load compress staticfiles
 
     head
@@ -16,35 +16,38 @@ html.no-js(lang="en")
         block meta
 
         - compress css
-            link(rel="stylesheet", href="{% static 'less/theme.less' %}", type="text/less")
+            link(rel="stylesheet", href="{% static 'less/theme.less' %}")
+
             block css
 
         - compress js
             script(src="{% static 'js/libs/modernizr.js' %}")
-            script(src="{% static 'js/libs/respond.src.js' %}")
 
         // if IE
             meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+            meta(http-equiv="cleartype", content="on")
+
+        // if lt IE 9
+            script(src="{% static 'js/libs/respond.src.js' %}")
 
     body(class="{% block body_class %}{% endblock %}")
         block body
-            //if lt IE 7
-                p.chromeframe
-                    | You are using an
-                    strong outdated
-                    | browser. Please
-                    a(href="http://browsehappy.com/") upgrade your browser
-                    | or
-                    a(href="http://www.google.com/chromeframe/?redirect=true") activate Google Chrome Frame
-                    | to improve your experience.
+            // if lt IE 8
+                .alert.alert-warning
+                    .container
+                        | You are using an
+                        strong outdated
+                        | browser. Please
+                        a(href="http://browsehappy.com/") upgrade your browser
+                        | to improve your experience.
 
-            header
+            header.header
                 block header
 
-            main(role="main")
+            main.wrapper(role="main")
                 block content
 
-            footer
+            footer.footer
                 block footer
 
             - compress js

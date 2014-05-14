@@ -5,10 +5,12 @@
   "author": "Vadim Yalo",
   "dependencies": {
     "bootstrap": "3.1.1",
-    "modernizr": "2.7.1",
+    "modernizr": "2.8.1",
     "respond": "1.4.2",
-    "jquery": "1.11.0",
+    "jquery": "1.11.1",
     "holderjs": "2.3.2",
-    "font-awesome": "4.0.3"
+    "font-awesome": "4.0.3",
+    "SVGMagic": "2.3.1",
+    "fancybox": "2.1.5"
   }
 }

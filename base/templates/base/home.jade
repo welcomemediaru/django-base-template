@@ -1,13 +1,7 @@
 extends "_layouts/base.jade"
 
-block css
-    | {{ block.super }}
-
 block page_title
-    | {{ _("Your Site - Home") }}
-
-block body_class
-    | home-page
+    {{ _("Your Site - Home") }}
 
 block content
     .navbar.navbar-inverse.navbar-fixed-top(role="navigation")

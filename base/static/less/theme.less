@@ -1,0 +1,35 @@
+@import "bootstrap/bootstrap";
+@import "font-awesome/font-awesome";
+@import "styles/styles";
+@import "fonts/pt-sans";
+@import "fonts/wm";
+@import "fixed";
+@import "variables";
+
+@static-path: "/static";
+@fa-font-path: "@{static-path}/fonts/font-awesome";
+@footer-height: 0;
+
+*:focus {
+  outline: none !important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: @footer-height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
