@@ -16,7 +16,7 @@ html.no-js(lang="ru")
         block meta
 
         - compress css
-            link(rel="stylesheet", href="{% static 'less/theme.less' %}")
+            link(rel="stylesheet", href="{% static 'less/theme.less' %}", type="text/less")
 
             block css
 
@@ -51,5 +51,7 @@ html.no-js(lang="ru")
                 block footer
 
             - compress js
+                script(src="{% static 'js/libs/jquery.js' %}")
+                script(src="{% static 'js/main.js' %}")
+
                 block js
-                    script(src="{% static 'js/main.js' %}")
