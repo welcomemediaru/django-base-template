@@ -1,6 +1,6 @@
 !!! 5
 html.no-js(lang="ru")
-    - load compress staticfiles
+    - load compress staticfiles cms_tags sekizai_tags
 
     head
         meta(charset="utf-8")
@@ -20,6 +20,8 @@ html.no-js(lang="ru")
 
             block css
 
+        - render_block "css"
+
         - compress js
             script(src="{% static 'js/libs/modernizr.js' %}")
 
@@ -31,18 +33,18 @@ html.no-js(lang="ru")
             script(src="{% static 'js/libs/respond.src.js' %}")
 
     body(class="{% block body_class %}{% endblock %}")
-        block body
-            .wrapper
-                // if lt IE 8
-                    .alert.alert-warning.fade.in
-                        .container
-                            button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
-                            | You are using an
-                            strong outdated
-                            | browser. Please
-                            a(href="http://browsehappy.com/") upgrade your browser
-                            | to improve your experience.
+        .wrapper
+            // if lt IE 8
+                .alert.alert-warning.fade.in
+                    .container
+                        button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+                        | You are using an
+                        strong outdated
+                        | browser. Please
+                        a(href="http://browsehappy.com/") upgrade your browser
+                        | to improve your experience.
 
+            block body
                 header.header
                     block header
 
@@ -52,9 +54,9 @@ html.no-js(lang="ru")
                 footer.footer
                     block footer
 
-            - compress js
-                script(src="{% static 'js/libs/jquery.js' %}")
-                script(src="{% static 'js/bootstrap/alert.js' %}")
-                script(src="{% static 'js/main.js' %}")
+        - compress js
+            - include "_layouts/scripts.jade"
 
-                block js
+            block js
+
+        - render_block "js"

@@ -1,14 +1,19 @@
 .icon-left {
-  margin-right: 10px;
+  margin-right: .5em;
 }
 
 .icon-right {
-  margin-left: 10px;
+  margin-left: .5em;
 }
 
 .icon-middle {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: .5em;
+  margin-left: .5em;
+}
+
+.bg-text {
+  background: @text-color;
+  color: #fff;
 }
 
 .block {
@@ -33,6 +38,36 @@
 
 .text-uppercase {
   text-transform: uppercase;
+}
+
+.text-default {
+  color: @text-color;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-selection {
+  &:hover,
+  &:focus,
+  &:active {
+    color: @link-hover-color;
+  }
+}
+
+a {
+  &:hover,
+  &:focus,
+  &:active {
+    .text-selection {
+      color: @link-hover-color;
+    }
+
+    .bg-text {
+      background: @link-hover-color;
+    }
+  }
 }
 
 .text-nodecoration {
