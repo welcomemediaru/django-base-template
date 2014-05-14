@@ -32,26 +32,29 @@ html.no-js(lang="ru")
 
     body(class="{% block body_class %}{% endblock %}")
         block body
-            // if lt IE 8
-                .alert.alert-warning
-                    .container
-                        | You are using an
-                        strong outdated
-                        | browser. Please
-                        a(href="http://browsehappy.com/") upgrade your browser
-                        | to improve your experience.
+            .wrapper
+                // if lt IE 8
+                    .alert.alert-warning.fade.in
+                        .container
+                            button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+                            | You are using an
+                            strong outdated
+                            | browser. Please
+                            a(href="http://browsehappy.com/") upgrade your browser
+                            | to improve your experience.
 
-            header.header
-                block header
+                header.header
+                    block header
 
-            main.wrapper(role="main")
-                block content
+                main(role="main")
+                    block content
 
-            footer.footer
-                block footer
+                footer.footer
+                    block footer
 
             - compress js
                 script(src="{% static 'js/libs/jquery.js' %}")
+                script(src="{% static 'js/bootstrap/alert.js' %}")
                 script(src="{% static 'js/main.js' %}")
 
                 block js
