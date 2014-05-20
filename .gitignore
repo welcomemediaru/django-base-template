@@ -138,7 +138,6 @@ test_db/
 media/*
 static/*
 base/static/less/bootstrap/
-base/static/less/variables.less
 base/static/less/font-awesome/
 base/static/js/libs/
 base/static/js/bootstrap/
