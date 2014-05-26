@@ -37,14 +37,13 @@ html.no-js(lang="ru")
 
         .wrapper
             // if lt IE 8
-                .alert.alert-warning.fade.in
-                    .container
-                        button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
-                        | You are using an
-                        strong outdated
-                        | browser. Please
-                        a(href="http://browsehappy.com/") upgrade your browser
-                        | to improve your experience.
+                .container.alert.alert-warning.fade.in
+                    button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+                    | You are using an
+                    strong outdated
+                    | browser. Please
+                    a(href="http://browsehappy.com/") upgrade your browser
+                    | to improve your experience.
 
             block body
                 header.header
