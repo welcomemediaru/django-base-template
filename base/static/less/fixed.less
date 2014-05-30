@@ -1,9 +1,9 @@
 body {
-  min-width: @container-lg;
+  min-width: @container-md;
 }
 
 .container {
-  width: @container-lg !important;
+  width: @container-md !important;
 
   .jumbotron {
     padding: 20px @jumbotron-padding;
@@ -19,8 +19,8 @@ body {
     float: left;
 
     > a {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: @navbar-padding-vertical;
+      padding-bottom: @navbar-padding-vertical;
     }
   }
 }
