@@ -48,12 +48,18 @@ html.no-js(lang="ru")
             block body
                 header.header
                     block header
+                        - include "_layouts/header.jade"
 
-                main(role="main")
+                block block
+
+                main.container(role="main")
                     block content
 
                 footer.footer
                     block footer
+                        - include "_layouts/footer.jade"
+
+        block modal
 
         - compress js
             - include "_layouts/scripts.jade"
