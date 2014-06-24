@@ -8,7 +8,7 @@ html.no-js(lang="ru")
 
         title
             block page_title
-                {{ _("Your Site") }}
+                - page_attribute "page_title"
 
         meta(name="description", content="{% block meta_description %}{% endblock %}")
         meta(name="author", content="{% block meta_author %}{% endblock %}")
