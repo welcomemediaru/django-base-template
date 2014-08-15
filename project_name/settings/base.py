@@ -342,14 +342,27 @@ SYSTEM_EMAIL_PREFIX = "[{{ project_name }}]"
 LOG_LEVEL = logging.INFO
 HAS_SYSLOG = True
 SYSLOG_TAG = "http_app_{{ project_name }}"  # Make this unique to your project.
-# Remove this configuration variable to use your custom logging configuration
-LOGGING_CONFIG = None
 LOGGING = {
     'version': 1,
-    'loggers': {
-        '{{ project_name }}': {
-            'level': "DEBUG"
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
         }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
     }
 }
 
