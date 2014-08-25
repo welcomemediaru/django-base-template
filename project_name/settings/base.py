@@ -92,9 +92,6 @@ INSTALLED_APPS = (
     'djangocms_video',
     'reversion',
 
-    # Application base, containing global templates.
-    'base',
-
     # Local apps, referenced via appname
 )
 
