@@ -30,7 +30,8 @@ html.no-js(lang="ru")
             meta(http-equiv="cleartype", content="on")
 
         // if lt IE 9
-            script(src="{% static 'js/libs/respond.src.js' %}")
+            - compress js
+                script(src="{% static 'js/libs/respond.src.js' %}")
 
     body(class="{% block body_class %}{% endblock %}")
         - cms_toolbar
