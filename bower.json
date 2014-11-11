@@ -1,16 +1,28 @@
 {
-  "name": "Theme",
-  "version": "0.0.1",
+  "name": "{{ project_name }}",
+  "version": "0.0.0",
+  "authors": [
+    "Vadim Yalo <yalovek@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
   "private": true,
-  "author": "Vadim Yalo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "bootstrap": "3.1.1",
-    "modernizr": "2.8.1",
-    "respond": "1.4.2",
-    "jquery": "1.11.1",
-    "holderjs": "2.3.2",
-    "font-awesome": "4.0.3",
-    "SVGMagic": "2.3.1",
-    "fancybox": "2.1.5"
+    "bootstrap": "~3.3.0",
+    "jquery": "~2.1.1",
+    "font-awesome": "~4.2.0",
+    "modernizr": "~2.8.3",
+    "respond": "~1.4.2",
+    "SVGMagic": "~2.4.5"
   }
 }

@@ -1,9 +1,13 @@
+/* global module:false, require:false */
+
 "use strict";
 
 module.exports = function (grunt) {
     var appConfig = {
         static: "base/static",
     };
+
+    require("jit-grunt")(grunt);
 
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
@@ -49,58 +53,15 @@ module.exports = function (grunt) {
                     dest: "<%= app.static %>/js/libs/"
                 }, {
                     expand: true,
-                    cwd: "bower_components/holderjs/",
-                    src: ["holder.js"],
-                    dest: "<%= app.static %>/js/libs/"
-                }, {
-                    expand: true,
                     cwd: "bower_components/SVGMagic/src/",
-                    src: ["SVGMagic.js"],
+                    src: ["jquery.svgmagic.js"],
                     dest: "<%= app.static %>/js/libs/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["jquery.fancybox.js"],
-                    dest: "<%= app.static %>/js/libs/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["jquery.fancybox.css"],
-                    dest: "<%= app.static %>/css/fancybox/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["fancybox_loading.gif"],
-                    dest: "<%= app.static %>/css/fancybox/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["fancybox_loading@2x.gif"],
-                    dest: "<%= app.static %>/css/fancybox/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["fancybox_overlay.png"],
-                    dest: "<%= app.static %>/css/fancybox/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["fancybox_sprite.png"],
-                    dest: "<%= app.static %>/css/fancybox/"
-                }, {
-                    expand: true,
-                    cwd: "bower_components/fancybox/source/",
-                    src: ["fancybox_sprite@2x.png"],
-                    dest: "<%= app.static %>/css/fancybox/"
                 }]
             }
         }
     });
 
-    grunt.loadNpmTasks("grunt-contrib-copy");
-
     grunt.registerTask("build", [
         "copy"
     ]);
-
 };

@@ -3,7 +3,7 @@ ul.pagination
         a(href="{{ page_list.previous.url }}", title="Предыдущая")
             span.fa.fa-angle-left
 
-    if page in page_list
+    for page in page_list
         li(class="{% if page.is_current %}active{% endif %}")
             a(href="{{ page.url }}", title="{{ page.number }}") {{ page.number }}
 

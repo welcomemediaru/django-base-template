@@ -6,3 +6,5 @@ psycopg2
 
 # Images
 pillow
+django-image-cropping==0.8.1
+easy_thumbnails==1.5

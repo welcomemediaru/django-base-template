@@ -66,6 +66,8 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'compressor',
     # 'django_select2',
+    'easy_thumbnails',
+    'image_cropping',
 
     # Database migrations
     'south',
@@ -364,3 +366,9 @@ LOGGING = {
 }
 
 SITE_ID = 1
+
+from easy_thumbnails.conf import Settings as thumbnail_settings
+
+THUMBNAIL_PROCESSORS = (
+    'image_cropping.thumbnail_processors.crop_corners',
+) + thumbnail_settings.THUMBNAIL_PROCESSORS
