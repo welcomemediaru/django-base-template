@@ -80,6 +80,14 @@ INSTALLED_APPS = (
     'mptt',
     'menus',
     'sekizai',
+    'filer',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_link',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_teaser',
+    'cmsplugin_filer_video',
+    'djangocms_ckeditor_filer',
 
     # django-cms plugins
     'djangocms_style',
@@ -181,7 +189,8 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
+    'cms.middleware.language.LanguageCookieMiddleware',
+    'djangocms_ckeditor_filer.middleware.ThumbnailMiddleware',
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -372,3 +381,29 @@ from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
+
+TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
+
+CKEDITOR_SETTINGS = {
+    "language": "{{ language }}",
+    "toolbar": [
+        ["Undo", "Redo"],
+        ["cmsplugins", "-", "ShowBlocks"],
+        ["Format", "Styles", "FontSize"],
+        ["TextColor", "-", "BGColor"],
+        ["PasteText", "-", "PasteFromWord"],
+        "/",
+        [
+            "Bold", "Italic", "Underline", "-",
+            "Subscript", "Superscript", "-", "RemoveFormat"],
+        ["JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"],
+        ["HorizontalRule"],
+        ["NumberedList", "BulletedList"],
+        ["Outdent", "Indent", "Table", "Filer Image"],
+        ["Link", "Unlink"],
+        ["Source"],
+    ],
+    "skin": "moono",
+    'extraPlugins': 'filerimage',
+    'removePlugins': 'image'
+}

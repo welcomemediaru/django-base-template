@@ -19,6 +19,11 @@ South
 django-cms>=3.0
 django-reversion==1.8
 django-mptt
+django-filer >= 0.9
+django-appconf
+django-sekizai >= 0.4.2
+cmsplugin-filer
+git+git://github.com/igloox/djangocms-ckeditor-filer
 
 # django-cms plugins
 djangocms-file
