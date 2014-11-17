@@ -1,3 +1,7 @@
 ol.breadcrumb
-    li: a(href="/", title="Главная") Главная
-    li.active Страница
+    for ance in ancestors
+        if not forloop.last
+            li: a(href="{{ ance.get_absolute_url }}", title="{{ ance.get_menu_title }}") {{ ance.get_menu_title }}
+
+        else
+            li.active {{ ance.get_menu_title }}
