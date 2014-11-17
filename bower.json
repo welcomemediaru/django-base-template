@@ -1,5 +1,5 @@
 {
-  "name": "{{ project_name }}",
+  "name": "project",
   "version": "0.0.0",
   "authors": [
     "Vadim Yalo <yalovek@gmail.com>"
