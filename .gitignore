@@ -139,5 +139,6 @@ media/*
 static/*
 base/static/less/bootstrap/
 base/static/less/font-awesome/
+base/static/fonts/font-awesome/
 base/static/js/libs/
 base/static/js/bootstrap/
